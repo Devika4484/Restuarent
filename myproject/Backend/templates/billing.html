@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body><br><br>
+
+<div class="card-body">
+    <h4 class="card-title"><b>Billing Details</b></h4><br>
+                  <p class="card-description">
+
+                  </p>
+                  <div class="table-responsive">
+                    <table class="table table-striped">
+                        <tr>
+
+                          <th>
+                           <b>First Name</b>
+                          </th>
+                          <th>
+                            <b>Last Name</b>
+                          </th>
+                          <th>
+                            <b>Username</b>
+                          </th>
+                          <th>
+                           <b>Email</b>
+                          </th>
+                          <th>
+                             <b>Address</b>
+                          </th>
+
+                            <th>
+                             <b></b>
+                          </th>
+
+                        </tr>
+                      </thead>
+                      <tbody>
+                      {% for d in data %}
+                        <tr>
+                            <td>{{ d.Fname }}</td>
+                          <td>{{ d.Lname }}</td>
+                             <td>{{ d.Uname }}</td>
+                            <td>{{ d.Email }}</td>
+                            <td>{{ d.Address }}</td>
+
+                             <td>
+                                <form action="{% url 'deletebillingdata' dataid=d.id %}">
+                                      <button type="submit"class="btn btn-primary mr-2">Delete</button>
+                                 </form>
+                            </td>
+                        </tr>
+                      {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+</body>
+</html>
+{% endblock %}

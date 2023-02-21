@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body><br><br><br><br>
+<form method="post" action="{% url 'updatecategory' dataid=data.id %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <center><h4><u><b>ADD CATEGORY</b></u></h4></center><br>
+<!--<div class="card">-->
+<!--                <div class="card-body">-->
+
+<!--                  <p class="card-description">-->
+<!--                    Basic form layout-->
+<!--                  </p>-->
+                   <div class="form-group">
+                     <br> <label for="exampleInputPassword1"><b>Category_Name</b></label>
+                      <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Category"name="category"value="{{ data.Category_Name }}">
+                    </div><br><br>
+
+                   <br> <div class="form-group">
+                      <label for="exampleInputPassword1"><b>Description</b></label>
+                      <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Type description"name="description"value="{{ data.Description }}">
+                    </div>
+
+                   <div class="form-group form-default">
+                        <br><img src="{{ data.Image.url }}" width="100px" height="100px"><br>
+
+                            <label><b>Image</b></label>
+                      <input type="file" name="image" class="form-control">
+
+                        <span class="form-bar"></span>
+
+                      </div>
+
+                    <button type="submit" class="btn btn-primary mr-2">Update</button>
+
+                  </form>
+                </div>
+              </div>
+</body>
+</html>
+{% endblock %}

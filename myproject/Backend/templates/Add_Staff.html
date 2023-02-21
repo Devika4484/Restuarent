@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body><br><br>
+<form method="post" action="{% url 'savedata' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+<div class="card-body">
+    <center><h4 class="card-title"><b>Add Staff</b></h4></center>
+    <p class="card-description">
+    </p>
+
+                <div class="card-body">
+                  <div class="form-group">
+                      <label for="exampleInputUsername1">Name</label>
+                      <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Enter your name" name="name">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Email </label>
+                      <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter your Email"name="email">
+                    </div>
+
+                    <div class="form-group">
+                      <label for="exampleInputUsername1">Mobile</label>
+                      <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Enter your Mobile"name="mobile">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputUsername1">Username</label>
+                      <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Enter your Username"name="uname">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Password</label>
+                      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter your Password"name="pwd">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputConfirmPassword1">Confirm Password</label>
+                      <input type="password" class="form-control" id="exampleInputConfirmPassword1" placeholder="Confirm Password"name="cpwd">
+                    </div>
+              <div class="form-group">
+                    <label>Image</label>
+                        <input type="file" name="image">
+                      </div>
+                    <div class="form-check form-check-flat form-check-primary">
+                      <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input">
+                        Remember me
+                      <i class="input-helper"></i></label>
+                    </div>
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <button class="btn btn-light">Cancel</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+</form>
+</body>
+</html>
+{% endblock %}

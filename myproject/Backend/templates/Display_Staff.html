@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body><br><br>
+<div class="card-body">
+    <h4 class="card-title"><b>Display Details</b></h4><br>
+                  <p class="card-description">
+
+                  </p>
+                  <div class="table-responsive">
+                    <table class="table table-striped">
+                        <tr>
+
+                          <th>
+                           <b>Name</b>
+                          </th>
+                          <th>
+                            <b>Email</b>
+                          </th>
+                          <th>
+                           <b>Mobile</b>
+                          </th>
+                          <th>
+                             <b>Username</b>
+                          </th>
+                            <th><b>Password</b></th>
+                             <th><b>Profile</b></th>
+
+<th><b></b></th>
+                             <th><b></b></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      {% for d in data %}
+                        <tr>
+                            <td>{{ d.Name }}</td>
+                             <td>{{ d.Email }}</td>
+                            <td>{{ d.Mobile }}</td>
+                            <td>{{ d.Username }}</td>
+                            <td>{{ d.Password }}</td>
+<!--                            <td>{{ d.Confirm_Password }}</td>-->
+
+                            <td>
+                                  <img src="{{ d.Image.url }}" width="200px" height="200px">
+                              </td>
+
+                             <td>
+                                      <form action="{% url 'editstaffpage' dataid=d.id %}">
+                                      <button type="submit"class="btn btn-primary mr-2">Edit</button>
+                                 </form>
+                            </td>
+                            <td>
+                                <form action="{% url 'deletestaffdata' dataid=d.id %}">
+                                      <button type="submit"class="btn btn-primary mr-2">Delete</button>
+                                 </form>
+                            </td>
+
+                        </tr>
+                      {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+</body>
+</html>
+{% endblock %}
